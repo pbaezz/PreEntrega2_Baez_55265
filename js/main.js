@@ -35,7 +35,7 @@ function filtrarCerve(){
     let answer=cerves.filter((cerveza)=> cerveza.sabor.includes(cerveUser))
 
     if(answer.length>0){
-        switch (cerveUser){
+        switch (cerveUser) {
             case "golden":
                 cerveCompra=cerveUser
                 break;
@@ -47,13 +47,15 @@ function filtrarCerve(){
                 break;
             case "amber":
                 cerveCompra=cerveUser
+                break;
+            }
+            console.table(answer)
+        }else{
+            alert("No vendemos esa Cerveza selecciona la opcion correcta")
+            filtrarCerve()
         }
-        console.table(answer)
-        
-    }else{
-        alert("No vendemos esa Cerveza")
-    }
 }
+
 
 function filtrarPres(){
     let presUser=prompt("Ingresa la presentacion el litros que deseas comprar **| 20 | 5 | 3 |**")
@@ -76,7 +78,8 @@ function filtrarPres(){
         }
         agregarCompra()
     }else{
-        alert("No vendemos esa Presentacion")
+        alert("No vendemos esa Presentacion selecciona la opcion correcta")
+        filtrarPres()
     }
     let seguir=prompt("Seguir Comprando? S | N").toUpperCase().trim()
         switch (seguir){
